@@ -1,5 +1,7 @@
+import React from "react";
+import Cart from "./components/Cart";
 function App() {
-  return <div>Hello world! 123</div>;
+  return <Cart />;
 }
 
 export default App;
