@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.cright{
+    background: #ECECEC;
+}
+.total{
+    background: #FFFFFF;
+border-radius: 40px;
+height: 80%;
+padding:50px;
+margin-top: 30px;
+}
+.letter{
+    font-family: 'Poppins',sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 45px;
+}
+.content{
+    margin-top: 7%;
+}
+.i{
+    font-style: normal;
+font-weight: bold;
+font-size: 15px;
+line-height: 27px;
+}
+.row .btncheckout{
+    width: 80%;
+    height: 50px;
+    background: #43F3F3;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+.row .form-control{
+    background: #EAEAEA;
+    border: none;
+}
