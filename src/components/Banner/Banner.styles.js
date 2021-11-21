@@ -1,10 +1,15 @@
 import styled from "styled-components";
+
 export const Wrapper = styled.div`
   background: url(${({ image }) => image});
 
   background-size: 100%, cover;
   background-position: center;
-  height: 500px;
+  height: 200px;
+  width: 1420px;
+  margin: 0 auto;
+  margin-top: -50px;
+  padding: 0 10px;
   position: relative;
   animation: animationHeroImage 1s;
   @keyframes animationHeroImage {
@@ -15,9 +20,4 @@ export const Wrapper = styled.div`
       opacity: 1;
     }
   }
-`;
-
-export const Content = styled.div`
-  padding: 20px;
-  max-width: 200px;
 `;
