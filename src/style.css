@@ -39,3 +39,11 @@ line-height: 27px;
     background: #EAEAEA;
     border: none;
 }
+.iconic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon{
+    color: #f60152;
+}
