@@ -6,19 +6,17 @@ import GridLayout from "./GridLayout/GridLayout";
 import Items from "./Items/Items";
 import MenuLeft from "./MenuLeft/MenuLeft";
 import Footer from "./Footer/Footer";
+import Pagination from "./Pagination/Pagination";
 //Image
 import BannerImage2 from "../images/BannerImage.jpeg";
 import BannerImage from "../images/YuruCamp.jpg";
 //DUMMY DATA
-const DUMMY_DATA = [
-  { id: 1, image: BannerImage, name: "YuruCamp", price: 20, sold: 2000 },
-  { id: 2, image: BannerImage, name: "YuruCamp", price: 20, sold: 2000 },
-  { id: 3, image: BannerImage, name: "YuruCamp", price: 20, sold: 2000 },
-  { id: 4, image: BannerImage, name: "YuruCamp", price: 20, sold: 2000 },
-];
+import Arr from "./DUMMY_DATA.json";
 //Styles
 
 export default function Shop() {
+  document.title = "Shop";
+  console.log(Arr);
   return (
     <>
       <Header />
@@ -30,19 +28,7 @@ export default function Shop() {
           <MenuLeft />
         </div>
         <div class="col-8">
-          <GridLayout header="">
-            {DUMMY_DATA.map((item) => {
-              return (
-                <Items
-                  key={item.id}
-                  image={item.image}
-                  name={item.name}
-                  price={item.price}
-                  sold={item.sold}
-                />
-              );
-            })}
-          </GridLayout>
+          <Pagination header="" arrItems={Arr} itemPerPage={9} />
         </div>
       </div>
       <Footer />
