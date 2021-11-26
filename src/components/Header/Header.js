@@ -23,7 +23,7 @@ export default function Header({ state }) {
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link text-light" to="/cart">
+                <Link class="nav-link text-light" to="/shop">
                   Shop
                 </Link>
               </li>

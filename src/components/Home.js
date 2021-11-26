@@ -11,10 +11,10 @@ import BannerImage from "../images/YuruCamp.jpg";
 import BannerImage2 from "../images/BannerImage.jpeg";
 //DUMMY DATA
 const DUMMY_DATA = [
-  { id: 1, image: BannerImage, name: "YuruCamp", price: 20 },
-  { id: 2, image: BannerImage, name: "YuruCamp", price: 20 },
-  { id: 3, image: BannerImage, name: "YuruCamp", price: 20 },
-  { id: 4, image: BannerImage, name: "YuruCamp", price: 20 },
+  { id: 1, image: BannerImage, name: "YuruCamp", price: 20, sold: 2000 },
+  { id: 2, image: BannerImage, name: "YuruCamp", price: 20, sold: 2000 },
+  { id: 3, image: BannerImage, name: "YuruCamp", price: 20, sold: 2000 },
+  { id: 4, image: BannerImage, name: "YuruCamp", price: 20, sold: 2000 },
 ];
 //Styles
 
@@ -32,6 +32,7 @@ export default function Home() {
               image={item.image}
               name={item.name}
               price={item.price}
+              sold={item.sold}
             />
           );
         })}
@@ -44,6 +45,7 @@ export default function Home() {
               image={item.image}
               name={item.name}
               price={item.price}
+              sold={item.sold}
             />
           );
         })}
