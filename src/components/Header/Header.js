@@ -7,7 +7,7 @@ import Logo from "../../images/samplelogo.png";
 export default function Header({ state }) {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+      <nav className="navbar navbar-expand-lg  bg-dark">
         <Container className="container-fluid">
           <LogoImage className="navbar-brand" src={Logo} />
           <div class="collapse navbar-collapse" id="navbarSupportedContent">

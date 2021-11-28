@@ -35,9 +35,7 @@ export default function Home() {
           );
         })}
       </GridLayout>
-
       <Pagination header="Popular items" arrItems={Arr} itemPerPage={8} />
-
       <Footer />
     </>
   );

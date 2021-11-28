@@ -23,14 +23,17 @@ export default function Shop() {
       <div style={{ marginTop: "80px" }}>
         <Banner image={BannerImage2} />
       </div>
-      <div class="row pad">
-        <div class="col-4">
-          <MenuLeft />
-        </div>
-        <div class="col-8">
-          <Pagination header="" arrItems={Arr} itemPerPage={9} />
+      <div style={{ maxWidth: "100%" }} className="container">
+        <div class="row">
+          <div class="col-4">
+            <MenuLeft />
+          </div>
+          <div class="col-8">
+            <Pagination header="" arrItems={Arr} itemPerPage={9} />
+          </div>
         </div>
       </div>
+
       <Footer />
     </>
   );

@@ -6,10 +6,10 @@ export const Wrapper = styled.div`
   background-size: 100%, cover;
   background-position: center;
   height: 200px;
-  width: 1420px;
+  width: 100%;
   margin: 0 auto;
   margin-top: -50px;
-  padding: 0 10px;
+  padding: 0;
   position: relative;
   animation: animationHeroImage 1s;
   @keyframes animationHeroImage {

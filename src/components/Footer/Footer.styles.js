@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   height: 600px;
   height: fit-content;
   h1 {
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     font-weight: bold;
   }
 `;

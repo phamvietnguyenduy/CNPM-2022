@@ -7,5 +7,9 @@ export const LogoImage = styled.img`
 
 export const Container = styled.div`
   color: white;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
 `;
 export const MenuBar = styled.nav``;
