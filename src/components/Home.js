@@ -39,17 +39,32 @@ export default function Home() {
       <HeroImage image={image} />
       <Banner image={sale} />
       <GridLayout header="New items">
-        {Arr.slice(0, 4).map((item) => {
+        {DUMMY_DATA.slice(0, 4).map((item) => {
 
           return (
             <Items
               key={item.id}
-              image={`static/media/${item.image}.fd56f8db.jpg`}
+              image={item.image}
               name={item.name}
               price={item.price}
               dis={item.dis}
               classi={item.class}
 
+            />
+          );
+        })}
+      </GridLayout>
+      <GridLayout header="Popular items">
+        {DUMMY_DATA.slice(0, 4).map((item) => {
+
+          return (
+            <Items
+              key={item.id}
+              image={item.image}
+              name={item.name}
+              price={item.price}
+              dis={item.dis}
+              classi={item.class}
             />
           );
         })}

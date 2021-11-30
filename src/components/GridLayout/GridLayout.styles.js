@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  max-width: 100%;
+  max-width: 76%;
   margin: 0 auto;
   padding: 0 20px;
-
   h1 {
     padding-top: 20px;
     @media screen and (max-width: 768px) {

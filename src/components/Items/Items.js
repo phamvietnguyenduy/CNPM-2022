@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 //Styles
 import { Wrapper, Image } from "./Items.styles";
- HEAD
 export default function Items({ image, name, price,dis, classi}) {
   return (
     <>
