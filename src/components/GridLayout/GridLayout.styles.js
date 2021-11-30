@@ -16,5 +16,5 @@ export const Content = styled.div`
   margin-bottom: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 10rem;
+  grid-gap: 4rem;
 `;
