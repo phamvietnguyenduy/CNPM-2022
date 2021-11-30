@@ -4,6 +4,12 @@ position:relative;
   h1 {
     font-size: 20px;
   }
+  .right {
+    text-align: right;
+  }
+  @media screen and (max-width: 980px) {
+    max-width: 420px;
+  }
 `;
 export const Image = styled.img`
   height: 330px;

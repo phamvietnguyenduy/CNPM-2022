@@ -9,6 +9,7 @@ export default function Header({ state }) {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light " style={{background:'none',position:'absolute',zIndex:9999,width:'100%'}}>
+
         <Container className="container-fluid">
           <LogoImage className="navbar-brand" src={Logo2} />
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -24,7 +25,7 @@ export default function Header({ state }) {
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link text-light" to="/cart">
+                <Link class="nav-link text-light" to="/shop">
                   Shop
                 </Link>
               </li>

@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 //Styles
 import { Wrapper, Image } from "./Items.styles";
+ HEAD
 export default function Items({ image, name, price,dis, classi}) {
   return (
     <>
@@ -34,6 +36,8 @@ export default function Items({ image, name, price,dis, classi}) {
           <div style={{paddingBottom:'8px',paddingTop:'23px'}}><i class="fas fa-heart" style={{paddingtop: '40px',paddingbottom: '12px'}}></i></div>
           <span>sold 2.5K</span>
           </div>
+
+
         </div>
       </Wrapper>
     </>

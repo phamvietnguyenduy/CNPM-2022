@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   width: 90%;
   margin: 0 auto;
   margin-top: -50px;
-  padding: 0 10px;
+  padding: 0;
   position: relative;
   animation: animationHeroImage 1s;
   @keyframes animationHeroImage {
