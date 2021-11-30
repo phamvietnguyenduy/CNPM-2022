@@ -1,36 +1,43 @@
 import React from "react";
 import { Image } from "./Card.styles";
-const Card = () => {
+// import { FontAwesomeIcon } from '~@fortawesome/fontawesome-free/css/fontawesome.css';
+// import { faCheckSquare, faCoffee } from '@fortawesome/fontawesome-free-solid';
+
+const Card = (props) => {
   return (
     <div className="container">
-      <div className="row">
-        <div class="col-sm">
+      <div className="row" style={{paddingbottom: '30px'}} > 
+        <div className="col-sm-1 iconic">
+        <i class="fas fa-trash-alt icon"></i>
+        </div>
+        <div className="col-sm-4">
           <Image
             src="https://order.tokago.vn/uploads/2021/2/6/11/9/ed522ead3745b1c0709f76081662ab8b.jpg"
             width="178px"
             height="178px"
           />
         </div>
-        <div className="col-sm">
-          <h2>HiFi T-shirt</h2>
+        <div className="col-sm-3">
+          <h2>{props.name}</h2>
+          <br /> <br />
+          <a style={{color: '#B6034E'}}> Click here for more Description </a>
         </div>
-        <div className="col-sm">
+        <div className="col-sm-4">
           <div className="container">
             <div className="row">
               <div className="col-sm">
-                <span>Price</span>
+                <span class="i">Price</span>
                 <br />
-                <span>120$</span>
+                <span >{props.price}</span>
               </div>
 
               <div className="col-sm">
-                <span>Price</span>
+                <span class="i">Quantity</span>
                 <br />
-                <span>120$</span>
+               <input type="number" style={{width: '100%'}} ></input>
               </div>
-
               <div className="col-sm">
-                <span>Price</span>
+                <span class="i">Total</span>
                 <br />
                 <span>120$</span>
               </div>
