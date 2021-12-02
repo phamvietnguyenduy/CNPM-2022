@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   background-color: #000000;
-  padding: 0 10px;
+  padding: 30px 10px 0;
   color: white;
-  height: 600px;
-  height: fit-content;
+  height: auto;
   h1 {
     padding-bottom: 20px;
+    padding-left: 10px;
     font-weight: bold;
   }
 `;

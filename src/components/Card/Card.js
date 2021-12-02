@@ -1,14 +1,15 @@
 import React from "react";
 import { Image } from "./Card.styles";
+import { Link } from "react-router-dom";
 // import { FontAwesomeIcon } from '~@fortawesome/fontawesome-free/css/fontawesome.css';
 // import { faCheckSquare, faCoffee } from '@fortawesome/fontawesome-free-solid';
 
-const Card = (props) => {
+const Card = ({ name, price }) => {
   return (
     <div className="container">
-      <div className="row" style={{paddingbottom: '30px'}} > 
+      <div className="row" style={{ paddingBottom: "30px" }}>
         <div className="col-sm-1 iconic">
-        <i class="fas fa-trash-alt icon"></i>
+          <i class="fas fa-trash-alt icon"></i>
         </div>
         <div className="col-sm-4">
           <Image
@@ -18,9 +19,11 @@ const Card = (props) => {
           />
         </div>
         <div className="col-sm-3">
-          <h2>{props.name}</h2>
+          <h2>{name}</h2>
           <br /> <br />
-          <a style={{color: '#B6034E'}}> Click here for more Description </a>
+          <Link to="/" style={{ color: "#B6034E" }}>
+            Details
+          </Link>
         </div>
         <div className="col-sm-4">
           <div className="container">
@@ -28,13 +31,13 @@ const Card = (props) => {
               <div className="col-sm">
                 <span class="i">Price</span>
                 <br />
-                <span >{props.price}</span>
+                <span>{price}</span>
               </div>
 
               <div className="col-sm">
                 <span class="i">Quantity</span>
                 <br />
-               <input type="number" style={{width: '100%'}} ></input>
+                <input type="number" style={{ width: "100%" }}></input>
               </div>
               <div className="col-sm">
                 <span class="i">Total</span>

@@ -7,6 +7,5 @@ export default function GridLayout({ header, children }) {
       <h1 className="letter">{header}</h1>
       <Content>{children}</Content>
     </Wrapper>
-
   );
 }

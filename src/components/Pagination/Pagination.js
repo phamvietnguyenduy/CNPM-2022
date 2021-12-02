@@ -14,13 +14,15 @@ export default function Pagination({ arrItems, itemPerPage, header }) {
   const displayItems = arrItems
     .slice(pageVisisted, pageVisisted + itemPerPage)
     .map((item) => {
+      console.log(item.id);
       return (
         <Items
-          key={item.id}
-          image={`static/media/${item.image}.fd56f8db.jpg`}
+          image={item.image}
           name={item.name}
           price={item.price}
           sold={item.sold}
+          dis={item.dis}
+          classi={item.class}
         />
       );
     });
@@ -34,8 +36,8 @@ export default function Pagination({ arrItems, itemPerPage, header }) {
       <br />
       <Wrapper className="d-flex justify-content-center">
         <ReactPaginate
-          previousLabel={"Trước"}
-          nextLabel={"Sau"}
+          previousLabel={"<"}
+          nextLabel={">"}
           pageCount={pageCount}
           onPageChange={changePage}
           containerClassName={"pagination"}

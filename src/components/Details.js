@@ -10,7 +10,7 @@ import Image from "../images/YuruCamp.jpg";
 export default function Details() {
   return (
     <>
-      <Header />
+      <Header style={{ backgroundColor: "black" }} />
       <div style={{ maxWidth: "100%" }} className="container">
         <div class="row">
           <div class="col-sm-4">

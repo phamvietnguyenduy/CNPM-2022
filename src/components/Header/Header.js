@@ -3,13 +3,12 @@ import { Container, LogoImage } from "./Header.styles";
 //Routing
 import { Link } from "react-router-dom";
 //Image
-import Logo from "../../images/samplelogo.png";
+
 import Logo2 from "../../images/logo2.png";
-export default function Header({ state }) {
+export default function Header({ state, style }) {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light " style={{background:'none',position:'absolute',zIndex:9999,width:'100%'}}>
-
+      <nav style={style} className="navbar navbar-expand-lg ">
         <Container className="container-fluid">
           <LogoImage className="navbar-brand" src={Logo2} />
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -39,12 +38,19 @@ export default function Header({ state }) {
                   Wishlist
                 </Link>
               </li>
-              <li class="nav-item"><input
-                type="search"
-                class="form-control  search"
-                placeholder="Search"
-                aria-label="Search" style={{paddingLeft:'20px',width:'350px',marginLeft:'20px'}}/>
-          </li>
+              <li class="nav-item">
+                <input
+                  type="search"
+                  class="form-control  search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  style={{
+                    paddingLeft: "20px",
+                    width: "350px",
+                    marginLeft: "20px",
+                  }}
+                />
+              </li>
             </ul>
           </div>
 
