@@ -13,7 +13,9 @@ export default function Items({ image, name, price, dis, classi }) {
         <div className="name">
           <div>
             <h1 className="pro">
-              <Link to="/details">{name}</Link>
+              <Link style={{ textDecoration: "none" }} to="/details">
+                {name}
+              </Link>
             </h1>
             <label className="price">{price}</label>
           </div>

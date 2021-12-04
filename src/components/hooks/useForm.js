@@ -4,6 +4,7 @@ const useForm = (callback, validate, information) => {
   const [values, setValues] = useState(information);
   console.log(values);
   const [errors, setErrors] = useState({});
+  console.log(errors);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {

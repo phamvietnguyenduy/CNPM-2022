@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 //Components
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import Form from "./Form/Form";
+import Form from "./RegisterForm/Form";
 //Navigate
 
 export default function Register() {
@@ -14,7 +14,7 @@ export default function Register() {
   }
   return (
     <>
-      <Header />
+      <Header style={{ backgroundColor: "black" }} />
       {!isSubmitted ? <Form submittedForm={submitForm} /> : navigate("/")}
       <Footer />
     </>

@@ -55,7 +55,14 @@ export default function Header({ state, style }) {
           </div>
 
           <div className="d-flex">
-            <span className="nav-item me-5">Login</span>
+            <span className="nav-item me-5">
+              <Link
+                style={{ textDecoration: "none", color: "white" }}
+                to="/login"
+              >
+                Login
+              </Link>
+            </span>
             <span className="nav-item">Logout</span>
           </div>
         </Container>

@@ -6,13 +6,20 @@ export const Wrapper = styled.div`
   padding-top: 45px;
 `;
 export const Content = styled.div`
-  background-color: #f1f1f1;
-  border-radius: 20px;
   h1 {
     font-size: 25px;
     font-weight: bold;
   }
-  li {
-    list-style: none;
-  }
+`;
+export const SidebarNav = styled.nav`
+  background: #f1f1f1;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  transition: 350ms;
+`;
+
+export const SidebarWrap = styled.div`
+  width: 100%;
 `;

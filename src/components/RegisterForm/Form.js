@@ -33,7 +33,7 @@ export default function Form({ submittedForm }) {
               <h2>Username</h2>
               <input
                 type="text"
-                id="ussername"
+                id="username"
                 name="username"
                 placeholder="Enter your username"
                 className="form-control"

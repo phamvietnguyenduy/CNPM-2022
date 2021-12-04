@@ -12,7 +12,7 @@ export const DATA = [
   {
     id: 2,
     image: md,
-    name: "",
+    name: "YuruCamp",
     price: "200$",
     dis: "35%",
     class: "discount1",
