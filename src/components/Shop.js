@@ -12,27 +12,32 @@ import sale from "../images/sale.jpg";
 import { DATA } from "./DUMMY_DATA";
 import api from "./api";
 import {useState, useEffect} from 'react';
+import PaginationL from "./PaginationL/PaginationL";
+import Items from "./Items/Items";
 //Styles
 
 export default function Shop({ category }) {
   document.title = "Shop";
-  const [Pagecount,setPagecount] = useState(0);
+  const [pageCount,setpageCount] = useState(0);
   const [Posts,setPosts] = useState([]);  
   
-  // lấy dữ liệu từ api
+  // lấy dữ liệu từ api khi load hoặc load lại trang
   useEffect(() => {
-    
+    // trả về dữ liệu trang 1
     if (window.sessionStorage.getItem("currentPage") === 1 || window.sessionStorage.getItem("currentPage") === null) {
-      api.APIPost("shop").then(res =>{            
+      api.APIPost("shop").then(res =>{       
+        console.log(res.data.allproduct);     
         setPosts(res.data.allproduct.data);
-        setPagecount(res.data.allproduct.last_page);
+        setpageCount(res.data.allproduct.last_page);
         window.sessionStorage.setItem("currentPage",1);        
       })
-    }else if(window.sessionStorage.getItem("currentPage") !== 1)
+    }
+    // trả về dữ liệu không phải trang 1
+    else if(window.sessionStorage.getItem("currentPage") !== 1)
     {
       api.APIPost("shop?page="+window.sessionStorage.getItem("currentPage")).then(res =>{            
         setPosts(res.data.allproduct.data);
-        setPagecount(res.data.allproduct.last_page);
+        setpageCount(res.data.allproduct.last_page);
       })
     }
     
@@ -44,16 +49,21 @@ export default function Shop({ category }) {
      
       return Posts.map((item)=>{
         return (
-          <h1>{item.name}</h1>
+          <Items
+          name={item.name}
+          price={item.price}
+          />
         );
       }); 
     }     
   }  
+
+  // trả về dữ liệu khi đổi trang
   const changePage = ({ selected }) => {
-    api.APIPost("shop?page="+(selected+1)).then(res =>{            
+    api.APIPost("shop?page="+(selected+1)).then(res =>{           
       setPosts(res.data.allproduct.data);
       window.sessionStorage.setItem("currentPage",selected +1);
-      // setPagecount(res.data.allproduct.last_page);
+      // setpageCount(res.data.allproduct.last_page);
       // useEffect();
     })
   }
@@ -73,22 +83,26 @@ export default function Shop({ category }) {
                  renderPost()
             
             }
+            {/* <ReactPaginate
+              previousLabel={"<"}
+              nextLabel={">"}
+              pageCount={pageCount}
+              onPageChange={changePage}
+              containerClassName={"pagination"}
+              pageClassName={"page-item"}
+              pageLinkClassName={"page-link"}
+              previousClassName={"page-link"}
+              nextClassName={"page-link"}
+              activeClassName={"active"}
+              initialSelected={window.sessionStorage.getItem("currentPage")}
+            /> */}
+            <PaginationL
+              pagecount={pageCount}
+              pagechange={changePage}
+            />
+              
             
-              <ReactPaginate
-                previousLabel={"<"}
-                nextLabel={">"}
-                pageCount={Pagecount}
-                onPageChange={changePage}
-                containerClassName={"pagination"}
-                pageClassName={"page-item"}
-                pageLinkClassName={"page-link"}
-                previousClassName={"page-link"}
-                nextClassName={"page-link"}
-                activeClassName={"active"}
-                initialSelected={window.sessionStorage.getItem("currentPage")}
-              />
-            
-            {category === "items1" && (
+            {/* {category === "items1" && (
               <Pagination
                 arrItems={DATA}
                 itemPerPage={3}
@@ -98,7 +112,7 @@ export default function Shop({ category }) {
 
             {category === "clothes" && (
               <Pagination arrItems={DATA} itemPerPage={3} header="Clothes" />
-            )}
+            )} */}
           </div>
         </div>
       </div>
