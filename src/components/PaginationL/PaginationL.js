@@ -20,6 +20,6 @@ export default function PaginationL({pagecount, pagechange}){
       previousClassName={"page-link"}
       nextClassName={"page-link"}
       activeClassName={"active"}
-      initialSelected={window.sessionStorage.getItem("currentPage")}
+      forcePage={window.sessionStorage.getItem("currentPage")}
     />)
 }

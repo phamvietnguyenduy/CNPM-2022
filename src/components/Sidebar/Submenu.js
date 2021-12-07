@@ -55,7 +55,7 @@ export function Submenu({ item }) {
         item.subNav.map((item, index) => {
           return (
             <DropdownLink to={item.path} key={index}>
-              <SidebarLabel>{item.title}</SidebarLabel>
+              <SidebarLabel>{item.name}</SidebarLabel>
             </DropdownLink>
           );
         })}

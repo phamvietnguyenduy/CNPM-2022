@@ -10,9 +10,11 @@ export default function MenuLeft() {
       <Content>
         <SidebarNav>
           <SidebarWrap>
-            {SidebarData.map((item, index) => {
-              return <Submenu item={item} key={index} />;
-            })}
+            {/* {SidebarData().map((item, index) => {
+              return <div>{item.name}  </div>;
+            })} */}
+            {console.log(SidebarData())}
+
           </SidebarWrap>
         </SidebarNav>
       </Content>

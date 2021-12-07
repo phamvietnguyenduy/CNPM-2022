@@ -82,20 +82,7 @@ export default function Shop({ category }) {
             {category === "" &&     
                  renderPost()
             
-            }
-            {/* <ReactPaginate
-              previousLabel={"<"}
-              nextLabel={">"}
-              pageCount={pageCount}
-              onPageChange={changePage}
-              containerClassName={"pagination"}
-              pageClassName={"page-item"}
-              pageLinkClassName={"page-link"}
-              previousClassName={"page-link"}
-              nextClassName={"page-link"}
-              activeClassName={"active"}
-              initialSelected={window.sessionStorage.getItem("currentPage")}
-            /> */}
+            }            
             <PaginationL
               pagecount={pageCount}
               pagechange={changePage}
