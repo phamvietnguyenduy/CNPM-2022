@@ -3,10 +3,9 @@ import api from "../api";
 
 
 export const SidebarData = ()=>{
-  Category();
-
+  return Category();
+  
 };
-
 const Category= ()=>{
   const [Posts,setPosts] = useState([]);  
   useEffect(() => {

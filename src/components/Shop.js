@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 //Components
 import Header from "./Header/Header";
 import Banner from "./Banner/Banner";
@@ -20,28 +20,29 @@ export default function Shop({ category }) {
   document.title = "Shop";
   const [pageCount,setpageCount] = useState(0);
   const [Posts,setPosts] = useState([]);  
-  
+  const search = useLocation().search;
+  const id = new URLSearchParams(search).get('id');
   // lấy dữ liệu từ api khi load hoặc load lại trang
-  useEffect(() => {
-    // trả về dữ liệu trang 1
-    if (window.sessionStorage.getItem("currentPage") === 1 || window.sessionStorage.getItem("currentPage") === null) {
-      api.APIPost("shop").then(res =>{       
-        console.log(res.data.allproduct);     
-        setPosts(res.data.allproduct.data);
-        setpageCount(res.data.allproduct.last_page);
-        window.sessionStorage.setItem("currentPage",1);        
-      })
+  useEffect(() => {        
+    if (window.sessionStorage.getItem("currentPage") === null) {
+      window.sessionStorage.setItem("currentPage",1);
     }
-    // trả về dữ liệu không phải trang 1
-    else if(window.sessionStorage.getItem("currentPage") !== 1)
-    {
-      api.APIPost("shop?page="+window.sessionStorage.getItem("currentPage")).then(res =>{            
+    if (id === null) {
+      api.APIPost("shop?page="+window.sessionStorage.getItem("currentPage")).then(res =>{    
+        // console.log(res.data.allproduct);        
         setPosts(res.data.allproduct.data);
         setpageCount(res.data.allproduct.last_page);
+      })
+    }else{
+      api.APIPost("shop/category?id="+id).then(res =>{    
+        console.log(res.data.productcate);        
+        setPosts(res.data.productcate.data);
+        setpageCount(res.data.productcate.last_page);
       })
     }
     
-  }, [])
+    
+  }, [search])
 
   // nhả dữ liệu
   const renderPost = ()=> {     
@@ -60,12 +61,17 @@ export default function Shop({ category }) {
 
   // trả về dữ liệu khi đổi trang
   const changePage = ({ selected }) => {
-    api.APIPost("shop?page="+(selected+1)).then(res =>{           
-      setPosts(res.data.allproduct.data);
-      window.sessionStorage.setItem("currentPage",selected +1);
-      // setpageCount(res.data.allproduct.last_page);
-      // useEffect();
-    })
+    if (id === null) {
+      api.APIPost("shop?page="+(selected+1)).then(res =>{           
+        setPosts(res.data.allproduct.data);
+        window.sessionStorage.setItem("currentPage",selected +1);     
+      })
+    }else{
+      api.APIPost("shop/category?page="+(selected+1)+"&&id="+id).then(res =>{           
+        setPosts(res.data.productcate.data);
+        window.sessionStorage.setItem("currentPage",selected +1);     
+      })
+    }
   }
   return (
     <>    
@@ -80,13 +86,13 @@ export default function Shop({ category }) {
           </div>
           <div class="col-8">
             {category === "" &&     
-                 renderPost()
+                 renderPost().length === 0 ? <h1>Loading................</h1>: renderPost()
             
             }            
-            <PaginationL
+            {pageCount === 0  ? null : <PaginationL
               pagecount={pageCount}
               pagechange={changePage}
-            />
+            />}
               
             
             {/* {category === "items1" && (
