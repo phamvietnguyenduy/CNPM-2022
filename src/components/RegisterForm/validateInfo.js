@@ -2,16 +2,9 @@ export default function validateInfo(values) {
   let errors = {};
   const rexp =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (!values.username.trim()) {
-    errors.username = "Username required";
-  }
 
-  if (!values.firstname.trim()) {
-    errors.firstname = "Firstname required";
-  }
-
-  if (!values.lastname.trim()) {
-    errors.lastname = "Lastname required";
+  if (!values.fullname.trim()) {
+    errors.fullname = "Fullname required";
   }
 
   if (!values.email) {

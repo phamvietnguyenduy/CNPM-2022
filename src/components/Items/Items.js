@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 //Styles
 import { Wrapper, Image } from "./Items.styles";
-export default function Items({ image, name, price, dis, classi }) {
+export default function Items({ id, image, name, price, dis, classi }) {
   return (
     <>
       <Wrapper>
@@ -13,11 +13,14 @@ export default function Items({ image, name, price, dis, classi }) {
         <div className="name">
           <div>
             <h1 className="pro">
-              <Link style={{ textDecoration: "none" }} to="/details">
+              <Link
+                style={{ textDecoration: "none" }}
+                to={`/details?idpro=${id}`}
+              >
                 {name}
               </Link>
             </h1>
-            <label className="price">{price}</label>
+            <label className="price">{`${price}$`}</label>
           </div>
           <div className="iconn">
             <div style={{ paddingBottom: "8px", paddingTop: "23px" }}>
@@ -26,7 +29,7 @@ export default function Items({ image, name, price, dis, classi }) {
                 style={{ paddingtop: "40px", paddingbottom: "12px" }}
               ></i>
             </div>
-            <span>sold 2.5K</span>
+            <span style={{ textAlign: "right" }}>sold 2.5K</span>
           </div>
         </div>
       </Wrapper>

@@ -8,12 +8,10 @@ import useForm from "../hooks/useForm";
 import { Wrapper } from "./Form.styles";
 //INFORMATION
 const INFORMATION = {
-  username: "",
+  fullname: "",
   password: "",
   conpassword: "",
   email: "",
-  firstname: "",
-  lastname: "",
 };
 
 export default function Form({ submittedForm }) {
@@ -30,19 +28,19 @@ export default function Form({ submittedForm }) {
         <form onSubmit={handleSubmit} id="form" noValidate>
           <div className="row">
             <div className="form-group col">
-              <h2>Username</h2>
+              <h2>Fullname</h2>
               <input
                 type="text"
-                id="username"
-                name="username"
-                placeholder="Enter your username"
+                id="fullname"
+                name="fullname"
+                placeholder="Enter your fullname"
                 className="form-control"
-                value={values.username}
+                value={values.fullname}
                 onChange={handleChange}
                 required
               />
               <p className="input-alert">
-                {errors.username && errors.username}
+                {errors.fullname && errors.fullname}
               </p>
             </div>
             <div className="form-group col">
@@ -59,44 +57,6 @@ export default function Form({ submittedForm }) {
               />
               <p className="input-alert">
                 {errors.password && errors.password}
-              </p>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="form-group col">
-              <h2>Firstname</h2>
-
-              <input
-                type="text"
-                name="firstname"
-                id="input-pass"
-                value={values.firstname}
-                placeholder="Enter your firstname"
-                className="form-control"
-                onChange={handleChange}
-                required
-              />
-              <p className="input-alert">
-                {errors.firstname && errors.firstname}
-              </p>
-            </div>
-
-            <div className="form-group col">
-              <h2>Lastname</h2>
-
-              <input
-                type="text"
-                name="lastname"
-                id="input-pass"
-                value={values.lastname}
-                placeholder="Enter your lastname"
-                className="form-control"
-                onChange={handleChange}
-                required
-              />
-              <p className="input-alert">
-                {errors.lastname && errors.lastname}
               </p>
             </div>
           </div>

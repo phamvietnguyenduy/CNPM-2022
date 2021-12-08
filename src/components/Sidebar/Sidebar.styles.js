@@ -22,4 +22,19 @@ export const SidebarNav = styled.nav`
 
 export const SidebarWrap = styled.div`
   width: 100%;
+  .category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    list-style: none;
+    height: 60px;
+    text-decoration: none;
+    font-size: 18px;
+    &:hover {
+      background: #252831;
+      border-left: 4px solid #632ce4;
+      cursor: pointer;
+    }
+  }
 `;
