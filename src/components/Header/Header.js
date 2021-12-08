@@ -52,18 +52,32 @@ export default function Header({ state, style }) {
                 />
               </li>
             </ul>
-          </div>
-
+          </div>                  
           <div className="d-flex">
-            <span className="nav-item me-5">
+            <span className="nav-item me-5">              
+              {window.sessionStorage.getItem('loginid') !== 'null' 
+              ? 
+              <Link
+                style={{ textDecoration: "none", color: "white" }}
+                to=""
+              >
+                { window.sessionStorage.getItem('loginname')}
+              </Link>
+              :
               <Link
                 style={{ textDecoration: "none", color: "white" }}
                 to="/login"
               >
                 Login
-              </Link>
+              </Link>}
             </span>
-            <span className="nav-item">Logout</span>
+            {window.sessionStorage.getItem('loginid') != 'null' ?<Link
+                style={{ textDecoration: "none", color: "white" }}
+                to="/logout"
+              >
+                Logout
+              </Link>  :null}
+            
           </div>
         </Container>
       </nav>

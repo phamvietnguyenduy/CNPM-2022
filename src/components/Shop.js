@@ -22,30 +22,27 @@ export default function Shop({ category }) {
   const [pageCount,setpageCount] = useState(0);
   const [Posts,setPosts] = useState([]);  
   const search = useLocation().search;
-  const id = new URLSearchParams(search).get('id');
-  const idpro = new URLSearchParams(search).get('idpro');
+  const id = new URLSearchParams(search).get('id');  
   // lấy dữ liệu từ api khi load hoặc load lại trang
   useEffect(() => {        
     if (window.sessionStorage.getItem("currentPage") === null) {
       window.sessionStorage.setItem("currentPage",1);
     }
-    if (id === null && idpro === null) {
+    if (id === null) {
       api.APIPost("shop?page="+window.sessionStorage.getItem("currentPage")).then(res =>{    
         // console.log(res.data.allproduct);        
         setPosts(res.data.allproduct.data);
         setpageCount(res.data.allproduct.last_page);
       })
-    }if(id !== null){
+    }else{
       api.APIPost("shop/category?id="+id).then(res =>{    
         console.log(res.data.productcate);        
         setPosts(res.data.productcate.data);
-        setpageCount(res.data.productcate.last_page);
-      })
-    }if(idpro !== null){
-      api.APIPost("shop/detail?idpro="+idpro).then(res =>{    
-        console.log(res.data.productdetail);        
-        setPosts(res.data.productdetail);
-        setpageCount(0);
+        if (res.data.productcate.from !== null) {
+          setpageCount(res.data.productcate.last_page);
+        }else{
+          setpageCount(0);
+        }
       })
     }
     
@@ -53,27 +50,18 @@ export default function Shop({ category }) {
   }, [search])
 
   // nhả dữ liệu
-  const renderPost = ()=> {     
-    if (idpro === null) {
-     
-      return Posts.map((item)=>{
-        return (
-         <Link to={"?idpro="+item.product_id}>
-          <Items
-          name={item.name}
-          price={item.price}
-          />
-          </Link>
-        );
-      }
-      ); 
-    }else{
-      return Posts.map((item)=>{
-        return (
-         <DetailsInfo title={item.name} price={item.price}></DetailsInfo>
-        );
-      });
+  const renderPost = ()=> {      
+    return Posts.map((item)=>{
+      return (
+        <Link to={"detail?idpro="+item.product_id}>
+        <Items
+        name={item.name}
+        price={item.price}
+        />
+        </Link>
+      );
     }
+    ); 
   }  
 
   // trả về dữ liệu khi đổi trang
