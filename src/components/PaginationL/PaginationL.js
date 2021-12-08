@@ -5,7 +5,7 @@ import ReactPaginate from "react-paginate";
 
 //Styles
 import { Wrapper } from "./PaginationL.style";
-export default function PaginationL({ pagecount, pagechange }) {
+export default function PaginationL({ pagecount, pagechange, currentPage }) {
   return (
     <Wrapper className="d-flex justify-content-center">
       <ReactPaginate
@@ -19,7 +19,7 @@ export default function PaginationL({ pagecount, pagechange }) {
         previousClassName={"page-link"}
         nextClassName={"page-link"}
         activeClassName={"active"}
-        forcePage={window.sessionStorage.getItem("currentPage")}
+        forcePage={currentPage}
       />
     </Wrapper>
   );

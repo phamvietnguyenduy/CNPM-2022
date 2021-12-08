@@ -17,13 +17,7 @@ export default function MenuLeft() {
   const Category = () => {
     return Posts.map((item) => {
       categoryTitle.push(item.name);
-      return (
-        <div>
-          <Link className="category" to={"?id=" + item.category_id}>
-            {item.name}
-          </Link>
-        </div>
-      );
+      return <Submenu item={item} />;
     });
   };
 

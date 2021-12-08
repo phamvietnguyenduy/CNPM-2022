@@ -9,6 +9,7 @@ import Footer from "./Footer/Footer";
 import PaginationL from "./PaginationL/PaginationL";
 import GridLayout from "./GridLayout/GridLayout";
 import Items from "./Items/Items";
+import Spinner from "./Spinner/Spinner";
 //DUMMY DATA
 import sale from "../images/sale.jpg";
 import api from "./api";
@@ -28,6 +29,7 @@ export default function Shop({ category }) {
 
   // lấy dữ liệu từ api khi load hoặc load lại trang
   useEffect(() => {
+    console.log(currentPage);
     setCurrentPage(window.sessionStorage.getItem("currentPage"));
     if (window.sessionStorage.getItem("currentPage") === null) {
       window.sessionStorage.setItem("currentPage", 1);
@@ -111,13 +113,17 @@ export default function Shop({ category }) {
               }
             >
               {category === "" && renderPost().length === 0 ? (
-                <h1>Loading................</h1>
+                <Spinner />
               ) : (
                 renderPost()
               )}
             </GridLayout>
             {pageCount === 0 ? null : (
-              <PaginationL pagecount={pageCount} pagechange={changePage} />
+              <PaginationL
+                pagecount={pageCount}
+                pagechange={changePage}
+                currentPage={currentPage - 1}
+              />
             )}
           </div>
         </div>

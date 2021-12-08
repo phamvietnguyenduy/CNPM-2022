@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { FAKEDATA } from "./SidebarData";
 
 const SidebarLink = styled(Link)`
   display: flex;
@@ -46,16 +47,21 @@ export function Submenu({ item }) {
 
   return (
     <>
-      <SidebarLink to={item.path} onClick={item.subNav && showSubnav}>
-        <div>
-          <SidebarLabel>{item.title}</SidebarLabel>
-        </div>
-      </SidebarLink>
+      <div>
+        <SidebarLink
+          className="category"
+          to={"?id=" + item.category_id}
+          onClick={item.category_id && showSubnav}
+        >
+          {item.name}
+        </SidebarLink>
+      </div>
+      {console.log(subnav)}
       {subnav &&
-        item.subNav.map((item, index) => {
+        FAKEDATA.map((data) => {
           return (
-            <DropdownLink to={item.path} key={index}>
-              <SidebarLabel>{item.name}</SidebarLabel>
+            <DropdownLink to="/" key={data.id}>
+              <SidebarLabel>{data.name}</SidebarLabel>
             </DropdownLink>
           );
         })}
