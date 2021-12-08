@@ -80,14 +80,15 @@ export default function Form({ submittedForm }) {
               >
                 Remember my password
               </span>
-              <Link to="/" className="signup">
+              <Link
+                to="/"
+                style={{ top: "-6px", position: "relative", color: "cyan" }}
+              >
                 forgot my password?
               </Link>
               <div class="button">
                 <button id="login">log-in</button>
-                <Link to="/register" id="signup">
-                  sign-up
-                </Link>
+                <button id="signup">sign-up</button>
               </div>
               <br />
               <br />

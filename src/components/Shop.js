@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import { useLocation, Link } from "react-router-dom";
 //Components
 import Header from "./Header/Header";
@@ -6,13 +7,12 @@ import Banner from "./Banner/Banner";
 import Sidebar, { categoryTitle } from "./Sidebar/Sidebar";
 import Footer from "./Footer/Footer";
 import PaginationL from "./PaginationL/PaginationL";
-
+import GridLayout from "./GridLayout/GridLayout";
+import Items from "./Items/Items";
 //DUMMY DATA
 import sale from "../images/sale.jpg";
 import api from "./api";
-import { useState, useEffect } from "react";
-import Items from "./Items/Items";
-import GridLayout from "./GridLayout/GridLayout";
+
 import fakeImage from "../images/YuruCamp.jpg";
 //Styles
 export let productId = "";
