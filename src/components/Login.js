@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Form from "./LoginForm/Form";
-import { useNavigate } from "react-router";
+import { useNavigate,Navigate } from "react-router";
 export default function Login() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState("Thất Bại");
   const navigate = useNavigate();
-  function submitForm() {
-    setIsSubmitted(true);
+  function submitForm(string) {
+    setIsSubmitted(string);
   }
   return (
-    <div>
-      {!isSubmitted ? <Form submittedForm={submitForm} /> : navigate("/")}
+    <div>      
+      {isSubmitted == "Thất Bại"? <Form submittedForm={submitForm} /> :<Navigate to={"/"}/>}
     </div>
   );
 }

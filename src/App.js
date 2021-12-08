@@ -8,6 +8,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 //Routing
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Logout from "./components/logout";
 function App() {
   return (
     <BrowserRouter>
@@ -17,7 +18,8 @@ function App() {
         <Route path="/details" element={<Details />} />
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<Shop category={""} />} />
-        <Route path="/shop/items1" element={<Shop category={"items1"} />} />
+        <Route path="/shop/detail" element={<Details  />} />
+        <Route path="/logout" element={<Logout  />} />
         <Route
           path="/shop/items1/clothes"
           element={<Shop category={"clothes"} />}
