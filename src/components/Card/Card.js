@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Image } from "./Card.styles";
 import { Link } from "react-router-dom";
-// import { FontAwesomeIcon } from '~@fortawesome/fontawesome-free/css/fontawesome.css';
-// import { faCheckSquare, faCoffee } from '@fortawesome/fontawesome-free-solid';
 
-const Card = ({ name, price }) => {
+const Card = ({ id, name, price }) => {
+  const [quantity, setQuantity] = useState(1);
+  let totalItem = quantity * price;
+  // let ITEMS = { id: id, price: price, totalItem: totalItem };
+  // window.sessionStorage.setItem("items", ITEMS);
   return (
     <div className="container">
       <div className="row" style={{ paddingBottom: "30px" }}>
@@ -37,12 +39,18 @@ const Card = ({ name, price }) => {
               <div className="col-sm">
                 <span class="i">Quantity</span>
                 <br />
-                <input type="number" style={{ width: "100%" }}></input>
+                <input
+                  min={1}
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                  type="number"
+                  style={{ width: "100%" }}
+                ></input>
               </div>
               <div className="col-sm">
                 <span class="i">Total</span>
                 <br />
-                <span>120$</span>
+                <span>{`${totalItem}$`}</span>
               </div>
             </div>
           </div>

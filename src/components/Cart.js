@@ -1,5 +1,9 @@
-import React from "react";
-import Card from "./Card/Card";
+import React, { useState } from "react";
+import Card, { ITEMS } from "./Card/Card";
+const FAKEDATA = [
+  { id: 1, name: "T-shirt", price: 20 },
+  { id: 2, name: "Shirt", price: 50 },
+];
 
 export default function Cart() {
   return (
@@ -8,16 +12,23 @@ export default function Cart() {
         <div className="row">
           <div className="col-8">
             <h1>Shopping Cart</h1>
-            <Card name="Hifi" price="20" />
-            <Card name="Hifi" price="20" />
-            <Card name="Hifi" price="20" />
+            {FAKEDATA.map((data) => {
+              return (
+                <Card
+                  id={data.id}
+                  key={data.id}
+                  name={data.name}
+                  price={data.price}
+                />
+              );
+            })}
           </div>
           <div className="col-4 cright">
             <h1>Total</h1>
             <div className="container total">
               <div className="row justify-content-between">
                 <div className="col-4 ">Total</div>
-                <div className="col-2 text-right i">Price</div>
+                <div className="col-2 text-right i"></div>
               </div>
               <br />
               <div className="row justify-content-between">

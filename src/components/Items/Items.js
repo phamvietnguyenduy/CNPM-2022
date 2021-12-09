@@ -32,6 +32,7 @@ export default function Items({ id, image, name, price, dis, classi }) {
             <span style={{ textAlign: "right" }}>sold 2.5K</span>
           </div>
         </div>
+        <Link to="/cart">Add to cart</Link>
       </Wrapper>
     </>
   );

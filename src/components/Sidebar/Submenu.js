@@ -56,7 +56,7 @@ export function Submenu({ item }) {
           {item.name}
         </SidebarLink>
       </div>
-      {console.log(subnav)}
+
       {subnav &&
         FAKEDATA.map((data) => {
           return (
